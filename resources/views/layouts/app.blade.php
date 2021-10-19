@@ -2,6 +2,19 @@
 <html>
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T4ECGW5YV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-8T4ECGW5YV');
+    </script>
+
     <title>断捨離できるくん</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -11,6 +24,7 @@
     <link type="text/css" 　rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <!-- css -->
     <link type="text/css" rel="stylesheet" href="/css/style.css">
+
 </head>
 
 <body>
