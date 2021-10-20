@@ -211,6 +211,13 @@ footer {
   max-width: 900px;
 }
 
+.question__items:after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 0;
+}
+
 .question__item {
   width: 45%;
   height: 70px;

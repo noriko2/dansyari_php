@@ -18,16 +18,11 @@
 <div class="container question">
     <h2><a id="jump-question">断捨離したいものは？</a></h2>
     <div class="question__items">
-        @foreach($items as $item)
+        @foreach($items as $i => $item)
         <div class="question__item btn-blu">
-            <p><a href="#">{{$item}}</a></p>
+            <p><a href="{{ route('question', ['id' => $i, 'question_number' => 0]) }}">{{$item}}</a></p>
         </div>
         @endforeach
-        <!--<% @items.each_with_index do |item, i| %>
-        <div class="question__item btn-blu">
-            <p><%= link_to item, question_path(id: i, quetion_item_number: 0) %></p>
-        </div>
-        <% end %>-->
     </div>
 </div>
 
