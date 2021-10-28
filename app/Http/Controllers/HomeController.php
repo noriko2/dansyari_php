@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
@@ -10,7 +12,8 @@ class HomeController extends Controller
     {
         $items = ['服', '靴', 'バッグ', '本・雑誌', '食器', '化粧品', '家電', '思い出の品', '家具'];
 
-        return view('home.index', compact('items'));
+        //return view('home.index', compact('items'));  // blade
+        return Inertia::render('Home/Index', compact('items')); // vue
     }
 
     public function question()
@@ -121,13 +124,16 @@ class HomeController extends Controller
 
         if ($result_message_number === 0) {
             if ($question_number < $max_question_number) {
-                return view('home.question', compact('question_number', 'question_message', 'item_number'));
+                //return view('home.question', compact('question_number', 'question_message', 'item_number'));
+                return Inertia::render('Home/Question', compact('question_number', 'question_message', 'item_number'));
             } elseif ($question_number === $max_question_number) {
-                return view('home.result_2'); // 残す
+                //return view('home.result_2'); // 残す
+                return Inertia::render('Home/Result_2'); //残す
             }
         } elseif ($result_message_number !== 0) {
             $result_message = $result_messages[$item][$result_message_number - 1];
-            return view('home.result_1', compact('result_message')); //捨てる
+            //return view('home.result_1', compact('result_message')); //捨てる
+            return Inertia::render('Home/Result_1', compact('result_message')); //捨てる
         } else {
             return redirect('/');
         }
