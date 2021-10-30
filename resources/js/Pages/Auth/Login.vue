@@ -15,7 +15,7 @@
 
         <form @submit.prevent="submit">
             <div>
-                <jet-label for="email" value="Email" />
+                <jet-label for="email" value="メールアドレス" />
                 <jet-input
                     id="email"
                     type="email"
@@ -27,7 +27,7 @@
             </div>
 
             <div class="mt-4">
-                <jet-label for="password" value="Password" />
+                <jet-label for="password" value="パスワード" />
                 <jet-input
                     id="password"
                     type="password"
@@ -44,7 +44,7 @@
                         name="remember"
                         v-model:checked="form.remember"
                     />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                    <span class="ml-2 text-sm text-gray-600">次回から省略</span>
                 </label>
             </div>
 
@@ -62,7 +62,7 @@
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
-                    Log in
+                    ログイン
                 </jet-button>
             </div>
         </form>
