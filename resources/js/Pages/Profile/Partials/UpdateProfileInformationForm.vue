@@ -53,7 +53,7 @@
                     type="button"
                     @click.prevent="selectNewPhoto"
                 >
-                    新しいプロフィール画像を選択
+                    画像を変更する
                 </jet-secondary-button>
 
                 <jet-secondary-button
@@ -62,7 +62,7 @@
                     @click.prevent="deletePhoto"
                     v-if="user.profile_photo_path"
                 >
-                    プロフィール画像を削除
+                    画像を削除する
                 </jet-secondary-button>
 
                 <jet-input-error :message="form.errors.photo" class="mt-2" />

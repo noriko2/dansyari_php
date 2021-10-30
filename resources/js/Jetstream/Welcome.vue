@@ -1,10 +1,12 @@
 <template>
     <div class="container">
         <div class="registration-container profile-container">
+            <!-- プロフィール画像の表示 -->
             <div class="user_profile_image">
                 <inertia-link :href="route('profile.show')"
                     ><img
-                        src="/images/default-profile-image.png"
+                        :src="$page.props.user.profile_photo_url"
+                        :alt="$page.props.user.name"
                         class="profile-image"
                 /></inertia-link>
             </div>
