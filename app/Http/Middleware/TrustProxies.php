@@ -12,7 +12,8 @@ class TrustProxies extends Middleware
      *
      * @var array|string|null
      */
-    protected $proxies;
+    // protected $proxies;
+    protected $proxies = '*'; //heroku 403エラー(URLがhttp)解消のため追記
 
     /**
      * The headers that should be used to detect proxies.
@@ -20,7 +21,7 @@ class TrustProxies extends Middleware
      * @var int
      */
     protected $headers =
-        Request::HEADER_X_FORWARDED_FOR |
+    Request::HEADER_X_FORWARDED_FOR |
         Request::HEADER_X_FORWARDED_HOST |
         Request::HEADER_X_FORWARDED_PORT |
         Request::HEADER_X_FORWARDED_PROTO |
