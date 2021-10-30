@@ -27154,7 +27154,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "mb-4 text-sm text-gray-600"
-}, " ご登録していただきありがとうございます！始める前に、 登録のメールアドレスに先ほどお送りしたリンクをクリックしてメールアドレスの認証を完了させてください。メールが届かない場合は、別のメールをお送りします。 ", -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ご登録ありがとうございます！ ご入力いただいたメールアドレスへ認証リンクを送信しましたので、クリックして認証を完了させてください。"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" もし認証メールが届かない場合は、再送させていただきます。 ")], -1
 /* HOISTED */
 );
 
