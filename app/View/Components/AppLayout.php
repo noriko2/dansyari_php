@@ -1,4 +1,7 @@
 <?php
+// app/View/Components/AppLayout.php
+// ...<x-app-layout>として呼び出される本体
+// ...resources/views/layouts/app.blade.php(レイアウトファイル) が返される
 
 namespace App\View\Components;
 

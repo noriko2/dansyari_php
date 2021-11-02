@@ -1,4 +1,7 @@
 <?php
+// app/View/Components/GuestLayout.php
+// ...<x-guest-layout>として呼び出される本体
+// ...resources/views/layouts/guest.blade.php(レイアウトファイル) が返される
 
 namespace App\View\Components;
 

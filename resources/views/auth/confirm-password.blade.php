@@ -1,3 +1,4 @@
+<!-- app/View/Components/GuestLayout.phpが親 -->
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
