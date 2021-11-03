@@ -22,7 +22,7 @@
                 </p>
                 <a href="#" class="mypage-item btn-default btn-blu">断捨離を記録する</a>
                 <a href="#" class="mypage-item btn-default btn-blu">断捨離を振り返る</a>
-                <a href="#" class="mypage-item btn-default btn-blu">断捨離できるくんに相談</a>
+                <a href="/" class="mypage-item btn-default btn-blu">断捨離できるくんに相談</a>
                 <a href="{{ route('profile.show') }}" class="btn-default btn-gray">アカウント情報の編集</a>
             </div>
         </div>

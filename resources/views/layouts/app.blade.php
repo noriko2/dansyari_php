@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ログイン中のレイアウト -->
 <!-- app/View/Components/AppLayout.php が親 -->
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">

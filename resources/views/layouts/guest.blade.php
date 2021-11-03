@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ログインしていないときのレイアウト -->
 <!-- app/View/Components/GuestLayout.php が親 -->
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
