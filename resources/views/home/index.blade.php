@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.both')
 
 @section('content')
+
 <div class="top-visual top-visual-home">
     <div class="container top-visual-inner">
         <div class="top-visual__1">
