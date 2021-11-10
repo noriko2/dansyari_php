@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('vendor.jetstream.components.post-create');
     }
 
     /**
@@ -34,7 +34,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // バリデーション
+        $data = $request->validate([
+            'caption' => ['required', 'string', 'max:300'],
+        ]);
+
+        $post = $request->user()->posts()->create($data);
+
+        if ($post) {
+            return redirect('/dashboard')->with('flash_notice', '投稿が完了しました');
+        } else {
+            return redirect()->route('posts.create')->with('flash_alert', '投稿に失敗しました');
+        }
     }
 
     /**

@@ -14,6 +14,9 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -36,6 +39,17 @@
                 {{ $header }}
             </div>
         </header>
+        @endif
+
+        <!-- フラッシュメッセージ -->
+        @if (session('flash_notice'))
+        <div class="alert alert-success">
+            {{ session('flash_notice') }}
+        </div>
+        @elseif (session('flash_alert'))
+        <div class="alert alert-danger">
+            {{ session('flash_alert') }}
+        </div>
         @endif
 
         <!-- Page Content -->

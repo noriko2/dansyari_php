@@ -18,9 +18,9 @@
         <div class="registration-form">
             <div class="single-content">
                 <p class="mypage-item mypage-item-number">
-                    断捨離数： 点
+                    断捨離数： {{ Auth::user()->posts()->count() }}点
                 </p>
-                <a href="#" class="mypage-item btn-default btn-blu">断捨離を記録する</a>
+                <a href="{{ route('posts.create') }}" class="mypage-item btn-default btn-blu">断捨離を記録する</a>
                 <a href="#" class="mypage-item btn-default btn-blu">断捨離を振り返る</a>
                 <a href="/" class="mypage-item btn-default btn-blu">断捨離できるくんに相談</a>
                 <a href="{{ route('profile.show') }}" class="btn-default btn-gray">アカウント情報の編集</a>
