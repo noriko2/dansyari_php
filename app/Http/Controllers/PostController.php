@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -11,9 +13,13 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // ログインユーザーの投稿一覧ページ
     public function index()
     {
-        //
+        $current_user = Auth::user();
+        $posts = POST::where('user_id', $current_user->id)->orderByDesc('created_at')->get();
+
+        return view('vendor.jetstream.components.post-index', compact('posts'));
     }
 
     /**
@@ -21,6 +27,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // 新規投稿ページ
     public function create()
     {
         return view('vendor.jetstream.components.post-create');
