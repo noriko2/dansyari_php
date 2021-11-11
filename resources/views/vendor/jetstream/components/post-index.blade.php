@@ -22,6 +22,10 @@
                         <div class="image-item">
                             <p class="image-post">{{ $post->caption }}</p>
                         </div>
+                        <form method="post" action="{{ route('posts.destroy', $post) }}">
+                            @csrf @method('delete')
+                            <input type="submit" value="削除">
+                        </form>
                     </div>
                     @endforeach
                 </div>
