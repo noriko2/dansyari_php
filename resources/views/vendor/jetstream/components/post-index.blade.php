@@ -34,6 +34,8 @@
 
             </div>
 
+            <!-- ページネーション -->
+            {{ $posts->links() }}
         </div>　　　　
     </div>
 </x-app-layout>

@@ -821,3 +821,17 @@ footer {
     width: 73px;
     height: 38px;
 }
+
+.pc-pagination {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .pc-pagination {
+        display: block;
+    }
+
+    .sp-pagination {
+        display: none;
+    }
+}

@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $current_user = Auth::user();
-        $posts = POST::where('user_id', $current_user->id)->orderByDesc('created_at')->get();
+        $posts = POST::where('user_id', $current_user->id)->orderByDesc('created_at')->paginate(12);
 
         return view('vendor.jetstream.components.post-index', compact('posts'));
     }
