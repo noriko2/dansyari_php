@@ -44,9 +44,16 @@ class PostController extends Controller
         // バリデーション
         $data = $request->validate([
             'caption' => ['required', 'string', 'max:300'],
+            'post_image' => ['required', 'file', 'mimes:jpeg,png,jpg', 'max:2000'],
         ]);
 
-        $post = $request->user()->posts()->create($data);
+        //ログインユーザーを取得
+        $current_user = $request->user();
+
+        //storage/app/publicに画像ファイルを保存し、ファイルパスを変数に代入
+        $data['post_image'] = $request->file('post_image')->store('posts', 'public');
+
+        $post = $current_user->posts()->create($data);
 
         if ($post) {
             return redirect('/dashboard')->with('flash_notice', '投稿が完了しました');

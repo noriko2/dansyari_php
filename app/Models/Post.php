@@ -17,5 +17,6 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    protected $fillable = ['caption'];
+    // 複数代入を可能にする
+    protected $fillable = ['caption', 'post_image'];
 }

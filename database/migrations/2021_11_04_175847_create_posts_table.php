@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->text('caption');
+            $table->string('post_image');
             $table->timestamps();
         });
     }

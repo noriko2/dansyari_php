@@ -20,6 +20,7 @@
                     @foreach ($posts as $post)
                     <div class="image-group">
                         <div class="image-item">
+                            <p><img src="{{ Storage::url($post->post_image) }}" alt="" srcset=""></p>
                             <p class="image-post">{{ $post->caption }}</p>
                         </div>
                         <form method="post" action="{{ route('posts.destroy', $post) }}">
