@@ -43,7 +43,7 @@ class PostController extends Controller
     {
         // バリデーション
         $data = $request->validate([
-            'caption' => ['required', 'string', 'max:300'],
+            'caption' => ['nullable', 'string', 'max:300'],
             'post_image' => ['required', 'file', 'mimes:jpeg,png,jpg', 'max:2000'],
         ]);
 
