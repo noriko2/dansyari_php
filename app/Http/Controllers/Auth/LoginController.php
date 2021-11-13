@@ -20,7 +20,7 @@ class LoginController extends Controller
     public function handleProviderCallback(Request $request)
     {
         $provider = $request->provider;
-        $social_user = Socialite::driver($provider)->user();
+        $social_user = Socialite::driver($provider)->stateless()->user();
         $social_name = $social_user->getName();
         $social_email = $social_user->getEmail();
         $social_uid = $social_user->getId();

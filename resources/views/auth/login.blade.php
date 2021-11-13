@@ -12,6 +12,12 @@
         </div>
         @endif
 
+        <!-- ソーシャルログイン -->
+        <a href="{{ route('social_login.redirect', 'line') }}" class="btn-default btn-line">LINEでログインする</a>
+        <a href="{{ route('social_login.redirect', 'facebook') }}" class="btn-default btn-facebook">Facebookでログインする</a>
+
+        <br>
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -42,16 +48,6 @@
                 <x-jet-button class="ml-4">
                     {{ __('Log in') }}
                 </x-jet-button>
-            </div>
-
-            <hr class="my-3">
-            <div class="mt-3">
-                <h3>ソーシャル・ログイン</h3>
-                <div class="my-2">
-                    <a href="{{ route('social_login.redirect', 'line') }}">
-                        <img style="height:50px" src="/images/LINE_APP.png">
-                    </a>
-                </div>
             </div>
         </form>
     </x-jet-authentication-card>

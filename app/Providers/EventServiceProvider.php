@@ -21,6 +21,7 @@ class EventServiceProvider extends ServiceProvider
         // ソーシャルログインのプロバイダーが使えるように設定
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
             'SocialiteProviders\\Line\\LineExtendSocialite@handle',
+            'SocialiteProviders\\Facebook\\FacebookExtendSocialite@handle',
         ],
     ];
 
