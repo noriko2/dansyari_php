@@ -26,13 +26,21 @@
             </x-slot>
 
             <x-slot name="content">
+                @if (!Auth::user()->provider)
                 {{ __('Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                @elseif (Auth::user()->provider)
+                本当にアカウントを削除してもよろしいでしょうか？ 一度アカウントを削除するとすべてのリソースとデータは永久に削除されます。<br>
+                よろしければ「アカウント削除ボタン」を押してください。
+                @endif
 
+                <!-- ソーシャルログインユーザーの場合は、password入力を非表示 -->
+                @if (!Auth::user()->provider)
                 <div class="mt-4" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
                     <x-jet-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('Password') }}" x-ref="password" wire:model.defer="password" wire:keydown.enter="deleteUser" />
 
                     <x-jet-input-error for="password" class="mt-2" />
                 </div>
+                @endif
             </x-slot>
 
             <x-slot name="footer">
