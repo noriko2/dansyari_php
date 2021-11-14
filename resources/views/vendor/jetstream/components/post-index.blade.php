@@ -20,13 +20,18 @@
                     @foreach ($posts as $post)
                     <div class="image-group">
                         <div class="image-item">
-                            <p><img src="{{ Storage::url($post->post_image) }}" alt="" srcset=""></p>
-                            <p class="image-post">{{ $post->caption }}</p>
+                            <img src="{{ Storage::url($post->post_image) }}" class="image-post">
                         </div>
-                        <form method="post" action="{{ route('posts.destroy', $post) }}">
-                            @csrf @method('delete')
-                            <input type="submit" value="削除">
-                        </form>
+                        <div class="image-caption">
+                            <p>{{$post->created_at->format('Y年m月d日')}}の記録</p>
+                            <p>{{ $post->caption }}</p>
+                            <div class="post-delete">
+                                <form method="post" action="{{ route('posts.destroy', $post) }}">
+                                    @csrf @method('delete')
+                                    <input type="submit" value="記録を削除" class="btn-default btn-gray btn-delete">
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     @endforeach
                 </div>
