@@ -24,7 +24,8 @@ class PostFactory extends Factory
     {
         return [
             'caption' => $this->faker->realText(200),
-            'updated_at' => $this->faker->dateTimeBetween('-10days', '0days')
+            'post_image' => $this->faker->realText(200),
+            'created_at' => $this->faker->dateTimeBetween('-10days', '0days')
         ];
     }
 }

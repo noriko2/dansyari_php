@@ -27,9 +27,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         for ($num = 1; $num <= 100; $num++) {
-            $sample_user->posts()->create(['caption' => "【 サンプル記録__{$num} 】 ナイキスニーカー。靴の中に穴があいていたため断捨離。"]);
+            $sample_user->posts()->create([
+                'caption' => "【 サンプル記録__{$num} 】 ナイキスニーカー。靴の中に穴があいていたため断捨離。",
+                'post_image' => 'images/shoes.jpeg',
+            ]);
         };
-
 
         //fakerでユーザーを2人作成し、ランダムで、1ユーザーあたり、2から5の投稿データを作成する
         User::factory(2)->create()->each(function ($user) {
