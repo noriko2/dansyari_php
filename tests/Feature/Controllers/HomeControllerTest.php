@@ -2,16 +2,25 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class HomeControllerTest extends TestCase
 {
-    /** @test index */
-    public function httpリクエストが成功する()
+    public function testIndex()
     {
-        $this->get('/')
-            ->assertStatus(200);
+        $response = $this->get('/');
+
+        $response->assertStatus(200)
+            ->assertViewIs('home.index');
+    }
+
+    public function testQuestion()
+    {
+        // questionページ(アイテム：服)にアクセス
+        $response = $this->get('/question/?id=0&amp;question_number=0');
+
+        $response->assertStatus(200)
+            ->assertViewIs('home.question')
+            ->assertSee('毛玉、穴あき、シミがある？');
     }
 }
