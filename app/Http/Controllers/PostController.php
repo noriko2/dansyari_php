@@ -104,10 +104,16 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if ($post->delete()) {
-            return redirect()->route('posts.index')->with('flash_notice', '投稿を削除しました');
+        $current_user = Auth::user();
+
+        if ($current_user->id == $post->user_id) {
+            if ($post->delete()) {
+                return redirect()->route('posts.index')->with('flash_notice', '投稿を削除しました');
+            } else {
+                return redirect()->route('posts.index')->with('flash_alert', '投稿の削除に失敗しました');
+            }
         } else {
-            return redirect()->route('posts.index')->with('flash_alert', '投稿の削除に失敗しました');
+            return redirect('/');
         }
     }
 }
