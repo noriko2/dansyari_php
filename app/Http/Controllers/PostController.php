@@ -50,7 +50,7 @@ class PostController extends Controller
         //ログインユーザーを取得
         $current_user = $request->user();
 
-        //storage/app/publicに画像ファイルを保存し、ファイルパスを変数に代入
+        //storage/app/public/postsに画像ファイルを保存し、ファイルパスを変数に代入
         $data['post_image'] = $request->file('post_image')->store('posts', 'public');
 
         $post = $current_user->posts()->create($data);
