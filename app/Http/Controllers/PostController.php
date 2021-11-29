@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -50,8 +51,22 @@ class PostController extends Controller
         //ログインユーザーを取得
         $current_user = $request->user();
 
-        //storage/app/public/postsに画像ファイルを保存し、ファイルパスを変数に代入
-        $data['post_image'] = $request->file('post_image')->store('posts', 'public');
+        # 画像ファイルのアップロード
+        $image = $request->file('post_image');
+        if (app()->isLocal() || app()->runningUnitTests()) {
+            # 開発環境
+            //storage/app/public/postsに画像ファイルを保存し、ファイルパスを変数に代入
+            $path = $image->store('posts', 'public');
+            $data['post_image']  = $path;
+        } else {
+            # 本番環境
+            // s3バケットへアップロード
+            //putの第3引数にpublicを指定することで、ファイルをパブリックファイルとしてアップロードする。publicを指定せずにアップロードしても、アップロードはできても参照ができない。
+            $path = Storage::disk('s3')->put('/uploads', $image, 'public');
+            info($path);
+            // アップロードした画像のフルパスを取得
+            $data['post_image'] = Storage::disk('s3')->url($path);
+        }
 
         $post = $current_user->posts()->create($data);
 
