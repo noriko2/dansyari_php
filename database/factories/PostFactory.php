@@ -21,8 +21,8 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        $image1_path = 'test_posts/cloth_1.png';
-        $image2_path = 'test_posts/cloth_2.png';
+        $image1_path = '/images/test_posts/cloth_1.png';
+        $image2_path = '/images/test_posts/cloth_2.png';
         return [
             'caption' => $this->faker->realText(200),
             // 2つの画像をランダムに挿入

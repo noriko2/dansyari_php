@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
-        $image_path = 'test_posts/shoes.jpeg';
+        $image_path = '/images/test_posts/shoes.jpeg';
 
         for ($num = 1; $num <= 100; $num++) {
             $sample_user->posts()->create([
