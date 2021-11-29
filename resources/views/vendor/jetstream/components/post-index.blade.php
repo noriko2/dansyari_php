@@ -20,7 +20,7 @@
                     @foreach ($posts as $post)
                     <div class="image-group">
                         <div class="image-item">
-                            <img src="{{ Storage::url($post->post_image) }}" class="image-post">
+                            <img src="{{ $post->post_image }}" class="image-post">
                         </div>
                         <div class="image-caption">
                             <p>{{$post->created_at->format('Y年m月d日')}}の記録</p>

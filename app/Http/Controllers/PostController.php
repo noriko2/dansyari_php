@@ -57,7 +57,7 @@ class PostController extends Controller
             # 開発環境
             //storage/app/public/postsに画像ファイルを保存し、ファイルパスを変数に代入
             $path = $image->store('posts', 'public');
-            $data['post_image']  = $path;
+            $data['post_image']  = Storage::url($path);
         } else {
             # 本番環境
             // s3バケットへアップロード
