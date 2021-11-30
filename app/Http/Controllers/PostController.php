@@ -122,7 +122,7 @@ class PostController extends Controller
         $current_user = Auth::user();
 
         if ($current_user->id == $post->user_id) {
-            if ($post->delete()) {
+            if ($this->deletePost($post)) {
                 return redirect()->route('posts.index')->with('flash_notice', '投稿を削除しました');
             } else {
                 return redirect()->route('posts.index')->with('flash_alert', '投稿の削除に失敗しました');
@@ -130,5 +130,18 @@ class PostController extends Controller
         } else {
             return redirect('/');
         }
+    }
+
+    private function deletePost($post)
+    {
+        // ストレージの画像を削除
+        if (app()->isLocal() || app()->runningUnitTests()) {
+            Storage::delete('public/posts/' . basename($post->post_image));
+        } else {
+            Storage::disk('s3')->delete('uploads/' . basename($post->post_image));
+        }
+
+        // データベースを削除
+        return $post->delete();
     }
 }
